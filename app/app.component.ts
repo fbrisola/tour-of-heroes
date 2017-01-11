@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import  { Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
-    selector: 'my-app',
-    template: `
+  moduleId: module.id,
+  selector: 'my-app',
+  template: `
       <h1>{{title}}</h1>
       <nav>
         <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
@@ -11,9 +12,9 @@ import  { Router } from '@angular/router';
       </nav>
       <router-outlet></router-outlet>
       `,
-      styleUrls:['app.component.css']
+  styleUrls: ['app.component.css']
 })
 
 export class AppComponent {
-    title = 'Tour of Heroes';
+  title = 'Tour of Heroes';
 }
