@@ -9,7 +9,7 @@ import { HeroService } from './hero.service';
   moduleId: module.id,
   selector: 'my-heroes',
   templateUrl: 'heroes.component.html',
-  styleUrls: [ 'heroes.component.css' ]
+  styleUrls: ['heroes.component.css']
 })
 
 
@@ -36,4 +36,16 @@ export class HeroesComponent implements OnInit {
   gotoDetail(): void {
     this.router.navigate(['/detail', this.selectedHero.id]);
   }
+
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.heroService.create(name)
+      .then(hero => {
+        this.heroes.push(hero);
+        this.selectedHero = null;
+      });
+  }
+
+
 }
